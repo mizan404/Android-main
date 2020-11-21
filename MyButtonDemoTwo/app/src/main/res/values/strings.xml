@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyButtonDemoTwo</string>
+    <string name="login">Zareen</string>
+    <string name="logout">Ramin</string>
+</resources>

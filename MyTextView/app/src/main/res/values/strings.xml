@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">MyTextView</string>
+    <string name="first_name">Muhammad Mizanur Rahman</string>
+    <string name="large_name">
+package com.codewithharry.convertex;
+\n \n
+import android.os.Bundle;
+\n \n
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+\n \n
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+\n \n
+
+import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.Toast;
+\n \n
+
+public class MainActivity extends AppCompatActivity {
+\n \n
+
+    public void btnClick(View view){
+        EditText dollarAmount = (EditText) findViewById(R.id.dollarAmount);
+        String dollars = dollarAmount.getText().toString();
+        Double doubleDollars = Double.parseDouble(dollars);
+        Double doubleInr = 71.72 * doubleDollars;
+        String toastText = "= " + doubleInr.toString() + " $";
+        Toast.makeText(this, toastText, Toast.LENGTH_SHORT).show();
+    }
+\n \n
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+    }
+\n
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+\n
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+\n
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+\n
+        return super.onOptionsItemSelected(item);
+    }
+}
+
+
+    </string>
+</resources>
