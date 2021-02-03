@@ -21,7 +21,7 @@ private Button button;
 
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 // for send data from one activity to another
-                intent.putExtra("tag", "Bangladesh is our motherland.");
+                intent.putExtra("tag", "Success.");
                 startActivity(intent);
             }
         });

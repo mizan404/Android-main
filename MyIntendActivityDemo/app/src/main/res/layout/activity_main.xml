@@ -15,8 +15,25 @@
         android:layout_height="wrap_content"
         android:text="Bangladesh"
         android:textSize="25dp"
-        android:textStyle="bold"
 
-        android:textColor="@color/black"/>
+        android:textStyle="bold"
+        android:textColor="@color/white"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Maria"
+        >
+
+    </Button>
+    <buton
+        >
+
+    </buton>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
 
 </LinearLayout>
