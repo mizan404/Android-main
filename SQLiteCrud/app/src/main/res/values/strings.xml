@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">SQLiteCrud</string>
+    <string name="app_name">Login App</string>
+    <string name="choose_action">Please choose Action</string>
+    <string name="textview">TextView</string>
+    <string name="name">Name</string>
+
 </resources>
