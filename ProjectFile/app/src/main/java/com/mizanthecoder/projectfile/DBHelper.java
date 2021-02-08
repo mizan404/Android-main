@@ -53,16 +53,16 @@ public class DBHelper extends SQLiteOpenHelper {
         Log.v("done................ ", "Data Inserted");
     }
 
-    public void updateUser(Student student) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("id", student.getId());
-        values.put("username", student.getUsername());
-        values.put("password", student.getPassword());
-
-        db.update(TABLE_NAME, values, "id = ?",new String[] { id });
-
-    }
+//    public void updateUser(Student student) {
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues values = new ContentValues();
+//        values.put("id", student.getId());
+//        values.put("username", student.getUsername());
+//        values.put("password", student.getPassword());
+//
+//        db.update(TABLE_NAME, values, "id = ?",new String[] { id });
+//
+//    }
 
     public Student getStudent(String username) {
         SQLiteDatabase db = this.getReadableDatabase();
