@@ -1,0 +1,19 @@
+com/mizanthecoder/projectfile/RegisterActivity.java
+ com.mizanthecoder.projectfile.RegisterActivity
+ com.mizanthecoder.projectfile.RegisterActivity$1
+com/mizanthecoder/projectfile/BuildConfig.java
+ com.mizanthecoder.projectfile.BuildConfig
+com/mizanthecoder/projectfile/model/Student.java
+ com.mizanthecoder.projectfile.model.Student
+com/mizanthecoder/projectfile/LoginActivity.java
+ com.mizanthecoder.projectfile.LoginActivity
+ com.mizanthecoder.projectfile.LoginActivity$1
+com/mizanthecoder/projectfile/WelcomeActivity.java
+ com.mizanthecoder.projectfile.WelcomeActivity
+ com.mizanthecoder.projectfile.WelcomeActivity$1
+com/mizanthecoder/projectfile/DBHelper.java
+ com.mizanthecoder.projectfile.DBHelper
+com/mizanthecoder/projectfile/MainActivity.java
+ com.mizanthecoder.projectfile.MainActivity
+ com.mizanthecoder.projectfile.MainActivity$1
+ com.mizanthecoder.projectfile.MainActivity$2
