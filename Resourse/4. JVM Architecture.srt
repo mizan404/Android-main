@@ -1,0 +1,1187 @@
+1
+00:00:00,120 --> 00:00:07,470
+In this lecture, I will give the introduction to JVM architectural TVM, that is Java Virtual Machine.
+
+2
+00:00:08,730 --> 00:00:13,650
+Joe Virtual Machine is responsible for executing Jallow program.
+
+3
+00:00:14,100 --> 00:00:18,990
+It provides the interpreter for execution of Chelo programs.
+
+4
+00:00:19,200 --> 00:00:21,360
+So let us take a real life example.
+
+5
+00:00:21,480 --> 00:00:27,120
+And Troadec, we will understand the requirements for running any program.
+
+6
+00:00:28,050 --> 00:00:36,780
+This is a seminar hall, not a hall or conference hall, or there is a magic show that has to be conducted
+
+7
+00:00:36,780 --> 00:00:37,020
+here.
+
+8
+00:00:37,260 --> 00:00:38,790
+Something has to be conducted here.
+
+9
+00:00:39,270 --> 00:00:41,160
+So does a big haul of eleven.
+
+10
+00:00:41,190 --> 00:00:41,610
+Great.
+
+11
+00:00:43,230 --> 00:00:47,970
+Let us take a real life example to understand how our program executes in the memory.
+
+12
+00:00:49,050 --> 00:00:53,540
+So here is a big hall as there are spaces there.
+
+13
+00:00:53,910 --> 00:00:58,410
+Let us assume deciles, memory loss has memory of our computer system.
+
+14
+00:00:58,410 --> 00:01:01,680
+There were programs executed on this hall.
+
+15
+00:01:01,740 --> 00:01:07,860
+As for conducting an insurer or a conference hall or a seminar hall or a magician is going to conduct
+
+16
+00:01:07,860 --> 00:01:08,700
+his show here.
+
+17
+00:01:09,990 --> 00:01:17,040
+So in this example, we will understand how a magician will utilize this entire space for conducting
+
+18
+00:01:17,040 --> 00:01:17,790
+his show.
+
+19
+00:01:18,330 --> 00:01:20,460
+And based on this observation.
+
+20
+00:01:20,490 --> 00:01:24,360
+We can easily understand how our program utilizes this memory.
+
+21
+00:01:24,870 --> 00:01:27,240
+So I will give the card details of this example.
+
+22
+00:01:27,540 --> 00:01:31,920
+So that same thing, we will be matching it with the program and the memory.
+
+23
+00:01:33,000 --> 00:01:34,770
+So let us talk about this example.
+
+24
+00:01:35,610 --> 00:01:38,490
+Suppose a magician is going to conduct a show here.
+
+25
+00:01:39,090 --> 00:01:44,490
+So he will reserve some someplace inside this hall for him, for himself.
+
+26
+00:01:44,790 --> 00:01:46,650
+He will have a stable cap there.
+
+27
+00:01:46,950 --> 00:01:51,060
+And the other tools or the objects that all he require for conducting a show.
+
+28
+00:01:51,420 --> 00:01:56,520
+So one portion of the room he will consume, then the rest of the place is for audience.
+
+29
+00:01:57,480 --> 00:02:00,240
+So how does the rest of the place is utilized for audience?
+
+30
+00:02:00,540 --> 00:02:02,280
+He will arrange some chairs.
+
+31
+00:02:03,030 --> 00:02:04,750
+So guess how many chiefs?
+
+32
+00:02:04,800 --> 00:02:07,920
+He will arrange as many tickets he has already sold.
+
+33
+00:02:07,980 --> 00:02:12,220
+Suppose he was marketing for this show for past one week or one month.
+
+34
+00:02:12,270 --> 00:02:14,580
+And he has sold about 50 tickets.
+
+35
+00:02:14,670 --> 00:02:17,940
+Then it means 50 audience are expected.
+
+36
+00:02:17,970 --> 00:02:19,460
+So he will arrange 50 chairs.
+
+37
+00:02:20,220 --> 00:02:24,990
+So before the even before the show, he already knows how many people are expected.
+
+38
+00:02:25,410 --> 00:02:28,530
+So that many space he will reserve for those people.
+
+39
+00:02:28,560 --> 00:02:30,540
+So he will provide that many chiefs.
+
+40
+00:02:31,030 --> 00:02:32,560
+Then there is a free area.
+
+41
+00:02:32,640 --> 00:02:33,550
+The CDI is free.
+
+42
+00:02:33,570 --> 00:02:35,960
+You can see that there's a free area, right?
+
+43
+00:02:36,690 --> 00:02:37,470
+Definitely.
+
+44
+00:02:37,500 --> 00:02:42,030
+There will be some free ADR available in these type of functions.
+
+45
+00:02:42,720 --> 00:02:43,120
+Why this?
+
+46
+00:02:43,120 --> 00:02:47,670
+The area is of a level building the show if anybody joins.
+
+47
+00:02:47,700 --> 00:02:51,680
+Then he can buy a ticket and he can come and sit here for him.
+
+48
+00:02:51,690 --> 00:02:52,410
+We need chairs.
+
+49
+00:02:52,440 --> 00:02:53,970
+There are no free chairs available.
+
+50
+00:02:54,300 --> 00:02:56,430
+So, yes, there is a heap of chairs available.
+
+51
+00:02:56,760 --> 00:03:01,610
+He can pick up he chairs from there and he can sit here in this area.
+
+52
+00:03:01,980 --> 00:03:06,840
+So this may happen during the execution of this show.
+
+53
+00:03:07,580 --> 00:03:07,820
+Right.
+
+54
+00:03:07,890 --> 00:03:08,850
+During the show.
+
+55
+00:03:10,050 --> 00:03:12,200
+So during the show, if somebody joins in.
+
+56
+00:03:12,270 --> 00:03:15,620
+He can sit here by taking a chair from he.
+
+57
+00:03:15,810 --> 00:03:17,550
+Again, I have repeated this point.
+
+58
+00:03:17,580 --> 00:03:18,510
+This is very important.
+
+59
+00:03:19,110 --> 00:03:24,060
+So finally, we can say that this entire hall is divided into three portions.
+
+60
+00:03:24,480 --> 00:03:27,230
+One portion is used by magician.
+
+61
+00:03:27,790 --> 00:03:28,010
+Right.
+
+62
+00:03:28,080 --> 00:03:32,840
+One portion is for the seating arrangement of the people who are already expected.
+
+63
+00:03:32,850 --> 00:03:39,600
+We know how many people are coming in and this area is used for those people who are joining during
+
+64
+00:03:39,600 --> 00:03:40,110
+the show.
+
+65
+00:03:40,470 --> 00:03:48,390
+Same Veve and a program runs into the main memory program required for utilizes the memory by dividing
+
+66
+00:03:48,390 --> 00:03:53,370
+into three sections, one section where the program resides.
+
+67
+00:03:53,400 --> 00:03:56,970
+Program itself a little aside like a magician stand.
+
+68
+00:03:57,000 --> 00:04:00,150
+That same thing is program itself because it's going to execute.
+
+69
+00:04:00,720 --> 00:04:02,420
+And it will be executed by the CBO.
+
+70
+00:04:03,120 --> 00:04:04,560
+It will be executed by the CBO.
+
+71
+00:04:05,130 --> 00:04:11,930
+Then whatever variables a program is having for them, it will look at the space in some memory area.
+
+72
+00:04:11,970 --> 00:04:14,040
+That area we call it does stack.
+
+73
+00:04:15,530 --> 00:04:19,840
+Then above dack free spaces there, and that space will be used.
+
+74
+00:04:19,870 --> 00:04:25,080
+But the optics at that aren't bad if the program is allocating memory are different time that memories
+
+75
+00:04:25,080 --> 00:04:26,320
+are limited from heap.
+
+76
+00:04:26,770 --> 00:04:29,470
+I will show you the details of this one in the next diagram.
+
+77
+00:04:29,500 --> 00:04:33,490
+Just let us move to the next diagram, the memory diagram.
+
+78
+00:04:33,730 --> 00:04:38,170
+I will give you all the details required for executing a program.
+
+79
+00:04:38,220 --> 00:04:40,930
+Think it as a general program, not just Java program.
+
+80
+00:04:41,390 --> 00:04:42,940
+Dovi, you're talking about Java program.
+
+81
+00:04:43,030 --> 00:04:48,940
+So I will be telling you those points that are common for programs of any language.
+
+82
+00:04:49,570 --> 00:04:51,010
+So let us study this diagram.
+
+83
+00:04:51,510 --> 00:04:54,540
+See, this is the memory given to the program for execution.
+
+84
+00:04:54,580 --> 00:04:56,280
+So already I have Mitry sections.
+
+85
+00:04:56,290 --> 00:04:59,070
+One is called Section Stack and Heap.
+
+86
+00:04:59,680 --> 00:05:00,610
+We will learn about it.
+
+87
+00:05:01,390 --> 00:05:03,170
+Now, this is a program, right?
+
+88
+00:05:03,340 --> 00:05:06,940
+This program, if you observe clearly, it is having three variables.
+
+89
+00:05:08,420 --> 00:05:10,430
+X, Y, Z.
+
+90
+00:05:10,680 --> 00:05:19,520
+This is supposed to be X, X mistake, Z is explicitly then three variables other than it is that friends
+
+91
+00:05:19,750 --> 00:05:21,530
+have friends is also a variable.
+
+92
+00:05:22,220 --> 00:05:26,310
+The new An object is created, object created.
+
+93
+00:05:27,410 --> 00:05:28,670
+And this is a literal.
+
+94
+00:05:29,210 --> 00:05:33,080
+This sum is literal because it is given in double quotes.
+
+95
+00:05:33,230 --> 00:05:35,090
+There's a little string little later on literalness.
+
+96
+00:05:35,090 --> 00:05:42,410
+Also, the constant object is also there because new is used and then three variables and one reference
+
+97
+00:05:42,410 --> 00:05:44,500
+or portal for variables that I like.
+
+98
+00:05:44,840 --> 00:05:50,570
+And the program is displaying something and for displaying something it is calling print and matured
+
+99
+00:05:50,990 --> 00:05:51,570
+or print.
+
+100
+00:05:51,590 --> 00:05:53,100
+Materne or Pendelton attacked.
+
+101
+00:05:53,210 --> 00:05:53,540
+Right.
+
+102
+00:05:53,930 --> 00:06:00,800
+So this what the program is doing and this is a Java program file here, compile this program.
+
+103
+00:06:00,890 --> 00:06:06,230
+It will get converted into bytecode and it will give a class file classified.
+
+104
+00:06:06,530 --> 00:06:08,900
+Now we will talk about execution.
+
+105
+00:06:09,430 --> 00:06:10,510
+All right, then.
+
+106
+00:06:10,520 --> 00:06:11,840
+You want to run the program.
+
+107
+00:06:11,870 --> 00:06:15,800
+Then this class file should come inside the main memory.
+
+108
+00:06:15,830 --> 00:06:17,270
+Then Walid can execute.
+
+109
+00:06:17,540 --> 00:06:18,080
+Yes.
+
+110
+00:06:18,620 --> 00:06:20,330
+It must come inside a mean memory.
+
+111
+00:06:20,360 --> 00:06:22,400
+Then only it can be executed by C.P.U.
+
+112
+00:06:23,180 --> 00:06:23,570
+Yes.
+
+113
+00:06:23,960 --> 00:06:26,330
+So this class file should be brought here.
+
+114
+00:06:26,600 --> 00:06:28,570
+So we call inside the main memory.
+
+115
+00:06:28,580 --> 00:06:31,340
+We call this process as loading.
+
+116
+00:06:31,610 --> 00:06:34,310
+We call it as loading does a loading process.
+
+117
+00:06:34,550 --> 00:06:37,530
+But in Java, everything is inside the glass.
+
+118
+00:06:38,000 --> 00:06:39,970
+Everything is in the in the form of classes.
+
+119
+00:06:40,370 --> 00:06:43,550
+So we we call deciles class loading.
+
+120
+00:06:44,570 --> 00:06:45,840
+We call the guest class loading.
+
+121
+00:06:46,250 --> 00:06:48,410
+So who will do this job in Java?
+
+122
+00:06:48,740 --> 00:06:51,040
+This is done by class loader.
+
+123
+00:06:51,260 --> 00:06:52,340
+So here I will write on.
+
+124
+00:06:52,730 --> 00:06:59,330
+This is a done by class loader which will bring this program that is in the form of a class inside the
+
+125
+00:06:59,330 --> 00:07:03,290
+main memory stored inside this mean memory.
+
+126
+00:07:03,680 --> 00:07:05,830
+It will store only met Hertz.
+
+127
+00:07:06,080 --> 00:07:06,430
+Right.
+
+128
+00:07:06,590 --> 00:07:07,370
+This class.
+
+129
+00:07:07,400 --> 00:07:10,550
+All these definitions are useless because actually matters are important.
+
+130
+00:07:10,730 --> 00:07:13,120
+So it will store this mean method.
+
+131
+00:07:13,580 --> 00:07:13,880
+Right.
+
+132
+00:07:14,180 --> 00:07:15,680
+It's all all the things inside.
+
+133
+00:07:15,980 --> 00:07:17,750
+Then this method is also using print.
+
+134
+00:07:18,080 --> 00:07:20,200
+So it will also store print matter.
+
+135
+00:07:20,960 --> 00:07:24,220
+It will also store in Matre does not present in our class.
+
+136
+00:07:24,290 --> 00:07:26,150
+The class name I have given as first.
+
+137
+00:07:27,530 --> 00:07:29,460
+But this is not partisan inside our class.
+
+138
+00:07:29,510 --> 00:07:35,570
+There's a first class right class first, then very present inside the system, not out.
+
+139
+00:07:35,930 --> 00:07:37,250
+So it should load tax system.
+
+140
+00:07:37,250 --> 00:07:40,640
+Class also means actually it will load, but intimate hurt.
+
+141
+00:07:41,030 --> 00:07:46,910
+So who does the job of bringing this bytecode inside the main memory for execution?
+
+142
+00:07:47,260 --> 00:07:48,380
+It is done by class.
+
+143
+00:07:48,450 --> 00:07:50,300
+That program should come here.
+
+144
+00:07:50,660 --> 00:07:52,220
+So who is a magician here?
+
+145
+00:07:52,520 --> 00:07:54,300
+The program itself is magician.
+
+146
+00:07:54,680 --> 00:07:57,170
+Yes, he is going to perform the show.
+
+147
+00:07:57,860 --> 00:08:00,500
+Then C.P.U will start executing the program.
+
+148
+00:08:00,830 --> 00:08:02,450
+Can see you understand bytecode.
+
+149
+00:08:02,880 --> 00:08:03,380
+No.
+
+150
+00:08:03,740 --> 00:08:07,310
+For that conversion of the school should be done in machine code.
+
+151
+00:08:07,340 --> 00:08:12,770
+So who will go back into Peter inside the job of a good act in DVM.
+
+152
+00:08:12,770 --> 00:08:16,610
+Right in interpreting and Jilian so interpreter.
+
+153
+00:08:17,690 --> 00:08:19,460
+Ah, there is one more thing.
+
+154
+00:08:19,460 --> 00:08:24,970
+That is Calise just didn't find compiler because interpreters are slower.
+
+155
+00:08:25,220 --> 00:08:29,690
+So Java uses again a compiler that is called as just in time compiler.
+
+156
+00:08:30,110 --> 00:08:34,010
+Vishy does the same thing, but it does it faster than interpret Catton.
+
+157
+00:08:34,890 --> 00:08:35,110
+All right.
+
+158
+00:08:35,670 --> 00:08:40,020
+So it will convert that gold into machine gold and get it executed by C.P.U.
+
+159
+00:08:41,290 --> 00:08:48,820
+That's mean Methode is having four variables X, Y, Z and Ostia, those variables will be created here
+
+160
+00:08:48,820 --> 00:08:54,370
+inside the stack X, Y, Z and SDR.
+
+161
+00:08:55,700 --> 00:09:01,120
+Then this main method is also having a string object created.
+
+162
+00:09:01,420 --> 00:09:05,410
+So this string object will be created here inside the heap.
+
+163
+00:09:05,620 --> 00:09:07,340
+Yes, it will be created inside heap.
+
+164
+00:09:07,960 --> 00:09:10,410
+And this will be a referee for this.
+
+165
+00:09:10,600 --> 00:09:11,290
+Yes.
+
+166
+00:09:12,070 --> 00:09:17,730
+So dynamic objects are created and said he never you see, in new every object is created in a heap.
+
+167
+00:09:18,380 --> 00:09:21,460
+Then local variables, normal variables and references.
+
+168
+00:09:21,560 --> 00:09:24,460
+And they will be inside the stack and they will be.
+
+169
+00:09:24,480 --> 00:09:28,290
+This will be belonging to mean method because this is there inside the meaning.
+
+170
+00:09:29,110 --> 00:09:33,790
+This is how normal variables are created inside stacked and objects.
+
+171
+00:09:33,820 --> 00:09:38,760
+When you say new, an object is created and that is kept inside heap.
+
+172
+00:09:40,350 --> 00:09:46,740
+The next inside the same program, you can see that print is also called Van Brinda Squalled and again,
+
+173
+00:09:46,830 --> 00:09:48,660
+its own STAC will be created.
+
+174
+00:09:49,230 --> 00:09:56,010
+So whatever the variables that are used inside the Sprint legacy, it is using some variable as something.
+
+175
+00:09:56,080 --> 00:10:00,330
+OK, we don't know what this metric this as unique as is used.
+
+176
+00:10:00,570 --> 00:10:03,900
+So those variables for local buy space in the start.
+
+177
+00:10:04,290 --> 00:10:10,500
+And if it is using the objects in the heap, it may be pointing to those objects or it may be creating
+
+178
+00:10:10,500 --> 00:10:11,340
+new objects.
+
+179
+00:10:11,610 --> 00:10:11,970
+Right.
+
+180
+00:10:12,090 --> 00:10:14,970
+So whatever it is happening inside and we are just assuming.
+
+181
+00:10:15,030 --> 00:10:15,240
+Right.
+
+182
+00:10:16,130 --> 00:10:19,080
+Either we're using the existing object or creating a new object.
+
+183
+00:10:19,410 --> 00:10:24,710
+But a new stack frame is created for this pend method also.
+
+184
+00:10:25,010 --> 00:10:28,810
+So it means whenever a metal discard, its stack frame is created.
+
+185
+00:10:29,950 --> 00:10:30,390
+That's it.
+
+186
+00:10:30,500 --> 00:10:34,580
+There are a lot of other things to study and understand in this mechanism, Manale.
+
+187
+00:10:34,920 --> 00:10:36,780
+So I don't want to go into detail.
+
+188
+00:10:36,810 --> 00:10:39,570
+This is sufficient for you to understand like.
+
+189
+00:10:39,720 --> 00:10:41,940
+So let us repeat the points that I have explained.
+
+190
+00:10:42,320 --> 00:10:42,930
+Class load.
+
+191
+00:10:42,930 --> 00:10:46,950
+I will bring the program from disk to mean memory.
+
+192
+00:10:47,040 --> 00:10:47,320
+Right.
+
+193
+00:10:47,520 --> 00:10:48,720
+This to me in memory.
+
+194
+00:10:49,080 --> 00:10:53,100
+And this ADR Vayle, the programs are kept is not called as code section.
+
+195
+00:10:53,130 --> 00:10:56,430
+This is Class Materne ADR in Java.
+
+196
+00:10:56,580 --> 00:10:57,930
+It is called as Mattel a.D.A.
+
+197
+00:10:58,290 --> 00:10:59,850
+Because it's not keeping the classes.
+
+198
+00:10:59,880 --> 00:11:01,560
+It's keeping just networks.
+
+199
+00:11:01,950 --> 00:11:03,200
+So this is class Materne.
+
+200
+00:11:03,200 --> 00:11:03,620
+a.D.A.
+
+201
+00:11:04,140 --> 00:11:06,230
+Who will do this job class loda.
+
+202
+00:11:06,310 --> 00:11:09,390
+Who will interpret the school and get it executed.
+
+203
+00:11:09,840 --> 00:11:16,990
+Interpreter or just in time compiler then vedova normal variables are created inside the stack and other
+
+204
+00:11:17,010 --> 00:11:19,340
+references are created inside the stack.
+
+205
+00:11:19,860 --> 00:11:22,830
+Then where the objects are created inside the heap.
+
+206
+00:11:24,150 --> 00:11:30,800
+I think one last point, that is where the liberals are kept, liberals are kept also inside the matured
+
+207
+00:11:30,800 --> 00:11:37,140
+area, or a section which is similar to a metro area, which we call the guys string poodle string pool.
+
+208
+00:11:37,530 --> 00:11:39,660
+So there will be part of metro area.
+
+209
+00:11:40,870 --> 00:11:47,430
+I already know what are the things that are required for executing the program so we can see the diagram
+
+210
+00:11:47,430 --> 00:11:50,270
+for the architecture of JVM.
+
+211
+00:11:51,270 --> 00:11:54,360
+So this is the diagram for Architectural Chivian.
+
+212
+00:11:54,430 --> 00:11:55,720
+It's not a detail like them.
+
+213
+00:11:56,220 --> 00:11:57,960
+We will be studying about detailed diagram.
+
+214
+00:11:58,350 --> 00:12:02,610
+But this diagram is containing all the components except some details.
+
+215
+00:12:02,850 --> 00:12:03,090
+OK.
+
+216
+00:12:03,480 --> 00:12:05,730
+So we will learn about these components.
+
+217
+00:12:06,570 --> 00:12:09,960
+See, I have discussable class that, you know, what does it do?
+
+218
+00:12:10,260 --> 00:12:10,680
+Yes.
+
+219
+00:12:10,770 --> 00:12:11,160
+Right.
+
+220
+00:12:11,700 --> 00:12:13,470
+Then this is a Jillian's memory.
+
+221
+00:12:13,800 --> 00:12:18,600
+You know that one portion of the memory where Matosi are kept, that is methode area.
+
+222
+00:12:19,410 --> 00:12:21,240
+Like I was calling it as code section.
+
+223
+00:12:21,720 --> 00:12:24,680
+This is the place where the magician stands, right.
+
+224
+00:12:24,720 --> 00:12:25,290
+His idea.
+
+225
+00:12:26,130 --> 00:12:27,150
+Then there's a stack.
+
+226
+00:12:27,480 --> 00:12:32,400
+So the local variables are the people who have already purchased tickets.
+
+227
+00:12:32,970 --> 00:12:34,690
+So the variables which are already there.
+
+228
+00:12:34,740 --> 00:12:37,590
+And we know that those make that much space basis required.
+
+229
+00:12:37,980 --> 00:12:40,160
+So those variables located in such tack.
+
+230
+00:12:40,350 --> 00:12:41,810
+And then this is Hape area.
+
+231
+00:12:42,560 --> 00:12:48,420
+Then this is for those people who are joining during the show, during the execution of the program,
+
+232
+00:12:48,450 --> 00:12:49,650
+during runtime.
+
+233
+00:12:50,160 --> 00:12:52,340
+So Davel, take the memory from Heap.
+
+234
+00:12:52,380 --> 00:12:54,560
+So that's what we call it as he picks up.
+
+235
+00:12:55,140 --> 00:12:58,640
+So these are the three sections which we have already studied.
+
+236
+00:12:58,890 --> 00:12:59,640
+Does the memory.
+
+237
+00:13:00,370 --> 00:13:00,600
+OK.
+
+238
+00:13:01,020 --> 00:13:01,950
+I will come to this.
+
+239
+00:13:02,070 --> 00:13:03,210
+But let us finish this one.
+
+240
+00:13:03,210 --> 00:13:05,460
+Also, execution engine.
+
+241
+00:13:06,240 --> 00:13:11,140
+Execution engine will have interpreter and just come git compiler.
+
+242
+00:13:11,160 --> 00:13:13,090
+We have already done about this.
+
+243
+00:13:13,110 --> 00:13:14,130
+I told you about this one.
+
+244
+00:13:14,580 --> 00:13:19,790
+This will our interpreter and git compiler interpreter will convert and execute every time.
+
+245
+00:13:20,250 --> 00:13:28,170
+But for some repeating code, Java or Jilian will quickly convert into machine code and repeatedly use
+
+246
+00:13:28,170 --> 00:13:28,440
+it.
+
+247
+00:13:28,670 --> 00:13:29,900
+That's for git compiler.
+
+248
+00:13:31,200 --> 00:13:31,420
+OK.
+
+249
+00:13:31,590 --> 00:13:33,780
+Will not translate every time.
+
+250
+00:13:33,950 --> 00:13:35,920
+Save Lydersen like a loop is there.
+
+251
+00:13:36,270 --> 00:13:38,450
+So that loop has to be repeated many times.
+
+252
+00:13:38,460 --> 00:13:44,760
+So all the statement inside loop will not be translated every time they can be converted to using git
+
+253
+00:13:44,760 --> 00:13:46,830
+compiler only for one time.
+
+254
+00:13:47,270 --> 00:13:49,260
+Then executed multiple times.
+
+255
+00:13:49,620 --> 00:13:49,890
+Right.
+
+256
+00:13:50,190 --> 00:13:56,160
+So interpreter or Jita compiler or whatever is required that Jiyeon will decide and use it.
+
+257
+00:13:56,670 --> 00:13:58,710
+And one more thing this JVM will contain.
+
+258
+00:13:59,040 --> 00:14:01,530
+That is called as garbage collector.
+
+259
+00:14:02,550 --> 00:14:04,560
+That is called as a garbage collector.
+
+260
+00:14:04,980 --> 00:14:11,370
+So this garbage collector will take away the objects from heap, whichever are not yours.
+
+261
+00:14:11,670 --> 00:14:18,570
+So just imagine that the people who joined the show during the show, they leave the show and during
+
+262
+00:14:18,570 --> 00:14:20,940
+the show itself and before the end of the show.
+
+263
+00:14:21,030 --> 00:14:21,720
+It may happen.
+
+264
+00:14:22,220 --> 00:14:26,410
+So if they are leaving, the chairs will be picked up by garbage collector.
+
+265
+00:14:26,820 --> 00:14:31,140
+So the objects that are created and heap will be collected away by a garbage collector.
+
+266
+00:14:31,530 --> 00:14:32,670
+So does the new thing.
+
+267
+00:14:33,000 --> 00:14:35,250
+We will learn more detail about garbage collector.
+
+268
+00:14:35,960 --> 00:14:45,300
+Then we have other things like C registered native methode stack and Netivot, an interface and native
+
+269
+00:14:45,300 --> 00:14:46,160
+method library.
+
+270
+00:14:46,670 --> 00:14:47,800
+Be seated, oestrus.
+
+271
+00:14:48,310 --> 00:14:54,330
+See, the addresses of the program will be kept inside the C.P.U for execution.
+
+272
+00:14:54,390 --> 00:14:57,900
+C.P.U will store their address or the next instruction to execute.
+
+273
+00:14:58,620 --> 00:15:04,850
+So here directly, C.P.U is not executing in between Jimmy and is in the wall.
+
+274
+00:15:05,370 --> 00:15:07,260
+So Jaivin will take it off.
+
+275
+00:15:07,290 --> 00:15:13,260
+Keeping the addresses of the next instruction to be executed and it will hand it over to you.
+
+276
+00:15:13,890 --> 00:15:19,800
+No doubt S.P. will execute, but Jovian will also interfere in the execution process.
+
+277
+00:15:19,830 --> 00:15:22,080
+The reason is it is responsible for it.
+
+278
+00:15:22,500 --> 00:15:24,240
+So it more than one registers maybe there.
+
+279
+00:15:24,360 --> 00:15:26,050
+So Chivian will take care of it.
+
+280
+00:15:26,720 --> 00:15:36,360
+Now, lastly, in Java, we can also invoke or call the networks of other languages like C and C++.
+
+281
+00:15:37,500 --> 00:15:41,410
+So Dachis called us net native Mattocks, the Materne.
+
+282
+00:15:41,440 --> 00:15:48,240
+So we charted and in C and C++ are called S Native Materne because they are black farm dependent.
+
+283
+00:15:48,720 --> 00:15:53,040
+So if those matters are called in, they will be a separate stock for them.
+
+284
+00:15:53,850 --> 00:15:58,890
+An interface for Java program to native Matt Hertz.
+
+285
+00:15:59,010 --> 00:16:05,580
+So that's why Native Method Interface and in plus was also we have the library and title library.
+
+286
+00:16:05,610 --> 00:16:07,000
+Matre Library is available.
+
+287
+00:16:07,440 --> 00:16:09,330
+So this is about native Materne.
+
+288
+00:16:09,360 --> 00:16:11,640
+So this you can treat it as external.
+
+289
+00:16:12,390 --> 00:16:14,300
+Not a part of Java program.
+
+290
+00:16:14,640 --> 00:16:15,780
+Also Java program.
+
+291
+00:16:15,930 --> 00:16:18,060
+But JVM is responsible for that.
+
+292
+00:16:18,210 --> 00:16:19,710
+So it is there inside you.
+
+293
+00:16:20,760 --> 00:16:21,540
+So that's it.
+
+294
+00:16:21,720 --> 00:16:23,670
+I have covered all the components.
+
+295
+00:16:24,420 --> 00:16:27,270
+Now we will learn about the details of these components.
+
+296
+00:16:27,300 --> 00:16:30,540
+Next lecture, I will discuss this topic in detail once again.
+
+297
+00:16:30,900 --> 00:16:32,360
+So that's all in this video.
