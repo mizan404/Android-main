@@ -2,12 +2,14 @@ package com.mizanthecoder.bloodbank.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.widget.Toolbar.OnMenuItemClickListener;
@@ -16,6 +18,7 @@ import androidx.appcompat.widget.Toolbar.OnMenuItemClickListener;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.LayoutManager;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request.Method;
 import com.android.volley.Response.ErrorListener;
@@ -31,27 +34,29 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.mizanthecoder.bloodbank.Adapters.RequestAdapter;
+import com.mizanthecoder.bloodbank.DataModels.RequestDataModel;
 import com.mizanthecoder.bloodbank.R;
 import com.mizanthecoder.bloodbank.Utils.VolleySingleton;
 
 public class MainActivity extends AppCompatActivity {
 
-//    private RecyclerView recyclerView;
-//    private List<RequestDataModel> requestDataModels;
-//    private RequestAdapter requestAdapter;
+    private RecyclerView recyclerView;
+    private List<RequestDataModel> requestDataModels;
+    private RequestAdapter requestAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TextView make_request_button = findViewById(R.id.make_request_button);
-//        make_request_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(MainActivity.this, MakeRequestActivity.class));
-//            }
-//        });
-//        requestDataModels = new ArrayList<>();
+        make_request_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, MakeRequestActivity.class));
+            }
+        });
+        requestDataModels = new ArrayList<>();
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setOnMenuItemClickListener(new OnMenuItemClickListener() {
             @Override
@@ -64,12 +69,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        recyclerView = findViewById(R.id.recyclerView);
-//        LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
-//        recyclerView.setLayoutManager(layoutManager);
-//        requestAdapter = new RequestAdapter(requestDataModels, this);
-//        recyclerView.setAdapter(requestAdapter);
-//        populateHomePage();
+        recyclerView = findViewById(R.id.recyclerView);
+        LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+        requestAdapter = new RequestAdapter(requestDataModels, this);
+        recyclerView.setAdapter(requestAdapter);
+        populateHomePage();
 //        TextView pick_location = findViewById(R.id.pick_location);
 //        String location = PreferenceManager.getDefaultSharedPreferences(this)
 //                .getString("city", "no_city_found");
@@ -79,7 +84,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-//    private void populateHomePage() {
+    private void populateHomePage() {
+        RequestDataModel requestDataModel = new RequestDataModel("Hello", "https://en.wikipedia.org/wiki/Blood#/media/File:Venous_and_arterial_blood.jpg");
+
+        requestDataModels.add(requestDataModel);
+        requestDataModels.add(requestDataModel);
+        requestDataModels.add(requestDataModel);
+        requestDataModels.add(requestDataModel);
+        requestDataModels.add(requestDataModel);
+        requestDataModels.add(requestDataModel);
+        requestDataModels.add(requestDataModel);
+
+
+        requestAdapter.notifyDataSetChanged();
+
 //        final String city = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
 //                .getString("city", "no_city");
 //        StringRequest stringRequest = new StringRequest(
@@ -108,6 +126,6 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        };
 //        VolleySingleton.getInstance(this).addToRequestQueue(stringRequest);
-//    }
+    }
 
 }

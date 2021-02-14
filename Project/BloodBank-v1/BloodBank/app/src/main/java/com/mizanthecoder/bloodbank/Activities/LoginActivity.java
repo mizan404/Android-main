@@ -13,8 +13,9 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.preference.PreferenceManager;
 
-import android.preference.PreferenceManager;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -73,6 +74,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (!response.equals("Invalid Credentials")) {
                     Toast.makeText(LoginActivity.this, response, Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
+
                     PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit()
                             .putString("number", number).apply();
                     PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit()
