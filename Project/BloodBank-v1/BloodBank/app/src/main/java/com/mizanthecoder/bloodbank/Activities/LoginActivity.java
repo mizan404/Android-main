@@ -1,28 +1,26 @@
 package com.mizanthecoder.bloodbank.Activities;
 
 import android.content.Intent;
-import android.os.Bundle;
-
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.preference.PreferenceManager;
-
-
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+import androidx.preference.PreferenceManager;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request.Method;
+import com.android.volley.Response.ErrorListener;
+import com.android.volley.Response.Listener;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.mizanthecoder.bloodbank.R;
 import com.mizanthecoder.bloodbank.Utils.Endpoints;
 import com.mizanthecoder.bloodbank.Utils.VolleySingleton;
@@ -32,6 +30,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
+
     EditText numberEt, passwordEt;
     Button submit_button;
     TextView signUpText;
@@ -44,14 +43,14 @@ public class LoginActivity extends AppCompatActivity {
         passwordEt = findViewById(R.id.password);
         submit_button = findViewById(R.id.submit_button);
         signUpText = findViewById(R.id.sign_up_text);
-        signUpText.setOnClickListener(new View.OnClickListener() {
+        signUpText.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             }
         });
 
-        submit_button.setOnClickListener(new View.OnClickListener() {
+        submit_button.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 numberEt.setError(null);
@@ -68,13 +67,12 @@ public class LoginActivity extends AppCompatActivity {
 
     private void login(final String number, final String password) {
         StringRequest stringRequest = new StringRequest(
-                Request.Method.POST, Endpoints.login_url, new Response.Listener<String>() {
+                Method.POST, Endpoints.login_url, new Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if (!response.equals("Invalid Credentials")) {
                     Toast.makeText(LoginActivity.this, response, Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
-
                     PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit()
                             .putString("number", number).apply();
                     PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit()
@@ -84,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, response, Toast.LENGTH_SHORT).show();
                 }
             }
-        }, new Response.ErrorListener() {
+        }, new ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(LoginActivity.this, "Something went wrong:(", Toast.LENGTH_SHORT).show();
@@ -120,4 +118,6 @@ public class LoginActivity extends AppCompatActivity {
     private void showMessage(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
+
+
 }

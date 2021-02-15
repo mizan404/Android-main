@@ -1,20 +1,22 @@
 package com.mizanthecoder.bloodbank.DataModels;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 public class RequestDataModel {
 
-    //  @SerializedName("id")
-//  @Expose
-//    private String id;
-    //  @SerializedName("message")
-//  @Expose
+    @SerializedName("id")
+    @Expose
+    private String id;
+    @SerializedName("message")
+    @Expose
     private String message;
-    //  @SerializedName("url")
-//  @Expose
+    @SerializedName("url")
+    @Expose
     private String url;
-    //  @SerializedName("number")
-//  @Expose
-//    private String number;
+    @SerializedName("number")
+    @Expose
+    private String number;
 
 
     public RequestDataModel(String message, String url) {
